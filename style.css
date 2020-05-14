@@ -34,7 +34,7 @@
 /*General Styling */
 
 body {
-    background-color: var(--clr-light);
+    background-color: rgb(248, 194, 188);
     color: var(--clr-dark);
     font-family: var(--ff-primary);
     margin: 0;
