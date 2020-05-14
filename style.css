@@ -82,7 +82,7 @@ h3 {
 }
 
 h1 {
-    font-size: var(--fs-h1);
+    font-size: 80px;
 }
 
 h2 {
@@ -110,8 +110,7 @@ h3 {
     font-size: var(--fs-h3);
 }
 
-.section__subtitle--intro,
-.section__subtitle--about {
+.section__subtitle--intro {
     background: var(--clr-accent);
     padding: .25em 1em;
     font-family: var(--ff-secondary);
@@ -133,6 +132,7 @@ nav {
 
 .intro {
     position: relative;
+
 }
 
 @media (min-width: 600px) {
@@ -145,19 +145,22 @@ nav {
         "img title"
         "img subtitle";
         grid-template-columns: min-content max-content;
+        z-index: 1;
+
     }
 
     .intro__img {
         grid-area: img;
-        min-width: 550px;
+        min-width: 350px;
         position: relative;
         z-index: image;
         border-radius: 320px;
-        border-color: var(--clr-dark);
+        border-color:  var(--clr-dark);
+        z-index: -1;
     }
 
     .section__subtitle--intro {
-    align-self: start; 
+       align-self: start; 
        grid-column: -1 /1;
        grid-row: 2;
        text-align: right;
@@ -199,4 +202,71 @@ nav {
   .service {
     max-width: 500px;
     margin: 0 auto;
+}
+
+/* About Me */
+
+.about-me {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-me___img {
+    box-shadow: var(--bs);
+    border-radius: 300px;
+    border-color: var(--clr-dark);
+    border-style: solid;
+}
+
+@media (min-width: 600px) {
+    .about-me {
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        grid-template-areas:
+                 "title img"
+                 "subtitle img"
+                 "text img";
+        grid-column-gap: 2em;
+    }
+
+
+    .section__title--about {
+        grid-area: title;
+    }
+
+    .section__title--about,
+    .section__subtitle--about {
+        grid-column: 1;
+    }
+
+    .about-me___img {
+        grid-row: 1 / -1;
+        grid-column: 2 ;
+    }
+}
+
+/*Portfolio Area*/
+
+.my-work{
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    text-align: center;
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    max-width: 0 auto;
+}
+
+
+
+.portfolio__img {
+    transition: transform 750ms cubic-bezier(.5, 0, .5, 1),
+    opacity 250ms linear ;
+}
+
+.porfolio__img:hover {
+    transform: scale(1.2);
+    opacity: .75;
 }
