@@ -11,7 +11,7 @@
     --fw-bold: 900;
     --clr-light: #fff;
     --clr-dark: #303030;
-    --clr-accent: #16e0bd;
+    --clr-accent: #e18ef1;
     --fs-h1: 3rem;
     --fs-h2: 2.25rem;
     --fs-h3: 1.25rem;
@@ -52,6 +52,24 @@ img {
 }
 
 strong {font-weight: var(--fw-bold);}
+
+:focus {
+    outline: 3px solid var(--clr-accent);
+    outline-offset: 3px;
+}
+
+.btn {
+    display: inline-block;
+    padding: .5em 1.5em;
+    background: var(--clr-accent);
+    color: var(--clr-dark);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: .8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 200ms ease-in-out;
+}
 
 /* Typography */
 
@@ -133,7 +151,9 @@ nav {
         grid-area: img;
         min-width: 550px;
         position: relative;
-        z-index: 2;
+        z-index: image;
+        border-radius: 320px;
+        border-color: var(--clr-dark);
     }
 
     .section__subtitle--intro {
@@ -145,4 +165,38 @@ nav {
        left: -1rem;
        width: calc(100% + 1.5em);
     }
+}
+
+/* My services section */
+
+.my-services {
+    background-color: var(--clr-dark);
+    color: var(--clr-light);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-image: url(../img/services-bg.jpg);
+    text-align: center
+  }
+
+  .section__title--services {
+      position: relative;
+      color: var(--clr-light);
+  }
+
+  .section__title--services:after {
+    content: '';
+    display: block;
+    width: 25%;
+    height: 1px;
+    margin: 0.5em auto 1em;
+    background: currentColor;
+  }
+
+  .services {
+    margin-bottom: 4em;
+}
+
+  .service {
+    max-width: 500px;
+    margin: 0 auto;
 }
