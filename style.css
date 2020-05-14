@@ -154,7 +154,7 @@ header {
     padding: 0;
 }
 
-.nav__item {
+.nav__link {
     color: white;
     font-weight: var(--fw-bold);
     font-size: var(--fs-h2);
@@ -169,17 +169,65 @@ header {
     box-shadow: var(--bs);
 }
 
+.nav-toggle {
+    padding: .25em;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+    z-index: 1000;
+}
+
+.nav-open .nav {
+    background-color: black;
+    transform: translateX(0);
+}
+
+.nav-open .nav-toggle {
+    position: fixed;
+}
+
+.nav-open .hamburger {
+    transform: rotate(.625turn);
+}
+
+.nav-open .hamburger::before {
+    transform: rotate(90deg) translateX(-6px);
+}
+
+.nav-open .hamburger::after {
+    opacity: 0;
+}
+
 /*Hamburger*/
 
 .hamburger {
-    background-color: var(--clr-dark);
-    width: 2em;
-    height: 3px;
-    border-radius: 1em;
     display: block;
     position: relative;
 }
 
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: var(--clr-dark);
+}
+
+.hamburger::before { top: 6px; }
+.hamburger::after { bottom: 6px; }
 
 /* Intro Section */
 
